@@ -1,0 +1,18 @@
+# Môi trường B: F2LLM (index, retrieve, train). Python 3.12, CUDA 12.8.
+# Version lấy nguyên từ pip freeze của venv đã dựng index/train F2LLM.
+# torch bản CUDA 12.8: pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0
+transformers==5.5.0
+sentence-transformers==6.0.1
+peft==0.20.0
+unsloth==2026.8.22
+unsloth_zoo==2026.8.17
+faiss-cpu==1.15.0
+numpy==2.5.2
+pandas==3.0.5
+scikit-learn==1.9.0
+accelerate==1.14.0
+safetensors==0.8.0
+tokenizers==0.22.2
+sentencepiece==0.2.2
+datasets==4.3.0

@@ -1,0 +1,18 @@
+# Môi trường A: preprocess, BM25, VAE, BGE-M3, fusion, rerank, apply_ranking_rules. Python 3.12, CUDA 12.8.
+# Version lấy nguyên từ venv đã chạy ra kết quả.
+torch==2.9.1
+transformers==4.56.2
+sentence-transformers==5.7.0
+peft==0.18.1
+FlagEmbedding==1.4.0
+faiss-cpu==1.12.0
+bm25s==0.3.10
+numba==0.61.2
+numpy==2.0.2
+pandas==2.3.3
+scikit-learn==1.9.0
+accelerate==1.12.0
+safetensors==0.7.0
+tokenizers==0.22.2
+sentencepiece==0.2.1
+datasets==3.6.0

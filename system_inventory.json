@@ -1,0 +1,50 @@
+{
+  "schema_version": "legalir-system-model-inventory-v1",
+  "notes": [
+    "Tổng tham số của toàn hệ thống, để pipeline tự kiểm ngưỡng tham số cấu hình.",
+    "parameter_count đếm trực tiếp từ header file safetensors, không lấy từ tên model.",
+    "checkpoint_sha256 của thành phần rerank là hash mà JudgeDescriptor dùng (semantic sha256 của {tên file: sha256}), để bước kiểm không cộng trùng mô hình đã có trong inventory."
+  ],
+  "components": [
+    {
+      "name": "bm25",
+      "kind": "sparse",
+      "parameter_count": 0
+    },
+    {
+      "name": "vae-v2",
+      "kind": "dense",
+      "parameter_count": 567754752,
+      "checkpoint_sha256": "2fa082ead5ade68225327b913339bbd5aa1e14bcd7888ff9b09d69752a8d1cee",
+      "base_model": "AITeamVN/Vietnamese_Embedding_v2",
+      "finetuned": false
+    },
+    {
+      "name": "bgem3",
+      "kind": "dense",
+      "parameter_count": 567754752,
+      "checkpoint_sha256": "0aafd1e8ce4e6310f763c544c264f9c3386e8a1459efe394ee3cc1682fce78e9",
+      "base_model": "BAAI/bge-m3",
+      "finetuned": true
+    },
+    {
+      "name": "f2llm-1.7b",
+      "kind": "dense",
+      "parameter_count": 1726997504,
+      "checkpoint_sha256": "c5570bb18db6c34786da964ef9bc4eb38bca712e19eb32776f544c7c9eaddf32",
+      "base_model": "codefuse-ai/F2LLM-1.7B",
+      "base_parameter_count": 1720574976,
+      "adapter_parameter_count": 6422528,
+      "finetuned": true
+    },
+    {
+      "name": "rerank",
+      "kind": "dense",
+      "parameter_count": 567755777,
+      "checkpoint_sha256": "087aaa4ebb221f7c1b22563ca7ababa2d71b0d05ad44096cbca287109e639d0a",
+      "base_model": "BAAI/bge-reranker-v2-m3",
+      "finetuned": true
+    }
+  ],
+  "verified_total": 3430262785
+}

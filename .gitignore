@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.venv-a/
+.venv-b/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Checkpoint sau fine-tune (vài GB, không commit)
+checkpoints/
+
+# Dữ liệu và kết quả trung gian của một lần chạy (hàng GB, không commit)
+cache/
+
+# Văn bản gốc và bản phục hồi
+contexts/
+selected-contexts_recovered/
+*.zip
+
+# Workspace, index và output sinh ra khi chạy pipeline
+workspace/
+indexes/
+outputs/
+out/
+manifest.json
+dev_split_qids.json
+*.jsonl
+
+# Tài liệu kết quả cục bộ
+*.log
