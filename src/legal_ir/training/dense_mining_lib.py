@@ -28,13 +28,8 @@ from __future__ import annotations
 import random
 from pathlib import Path
 
-import sys
-_RETRIEVE_LOCAL = Path(__file__).resolve().parent.parent
-if str(_RETRIEVE_LOCAL) not in sys.path:
-    sys.path.insert(0, str(_RETRIEVE_LOCAL))
-
-from commons import iter_retrieval_rows
-from mine_reranker_pairs import hit_for, iter_jsonl
+from legal_ir.core.commons import iter_retrieval_rows
+from legal_ir.training.mine_reranker_pairs import hit_for, iter_jsonl
 
 
 def gold_score_in_source(source: dict, gold_context_id: str) -> float | None:

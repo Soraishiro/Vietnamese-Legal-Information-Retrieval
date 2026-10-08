@@ -31,12 +31,7 @@ import math
 from pathlib import Path
 from typing import NamedTuple, Protocol
 
-import sys
-_RETRIEVE_LOCAL = Path(__file__).resolve().parent.parent
-if str(_RETRIEVE_LOCAL) not in sys.path:
-    sys.path.insert(0, str(_RETRIEVE_LOCAL))
-
-from commons import iter_retrieval_rows
+from legal_ir.core.commons import iter_retrieval_rows
 
 
 class TrainingQuery(NamedTuple):

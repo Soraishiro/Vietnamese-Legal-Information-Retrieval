@@ -2,6 +2,26 @@
 
 Truy hồi văn bản pháp luật tiếng Việt: 4 retriever song song (BM25 + 3 dense) gộp bằng weighted RRF, xếp lại bằng cross-encoder, trả về 5 văn bản cho mỗi câu hỏi.
 
+## 0. Cấu trúc dự án
+
+Implementation được tổ chức trong package `src/legal_ir/` theo trách nhiệm:
+
+```text
+src/legal_ir/
+├── core/          # I/O, chuẩn hoá, hashing, index helpers
+├── preprocessing/ # dựng và validate corpus/query
+├── retrieval/     # BM25, dense, fusion, rerank, ranking rules
+├── training/      # dữ liệu train, mining, fine-tuning
+└── tools/         # công cụ bảo trì checkpoint
+```
+
+Các file `.py` ở root là launcher tương thích, nên toàn bộ lệnh cũ trong tài liệu vẫn chạy được. Có thể cài package ở chế độ editable để dùng namespace `legal_ir` trực tiếp:
+
+```bash
+python -m pip install -e .
+python -m legal_ir.retrieval.fuse --help
+```
+
 ## 1. Pipeline
 
 ```
@@ -29,6 +49,8 @@ contexts + queries (có nhãn và chưa gắn nhãn)
 ## 2. Code map
 
 ### Chạy pipeline
+
+Các lệnh dưới đây giữ launcher root để tương thích với workflow hiện tại; sau khi cài editable, có thể thay bằng `python -m legal_ir.<package>.<module>` tương ứng.
 
 | File | Bước | Việc |
 | ---- | ---- | ---- |
