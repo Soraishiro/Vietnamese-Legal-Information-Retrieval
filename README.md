@@ -333,19 +333,15 @@ Use actual query and context IDs from the competition data and validate the expo
 For query $i$, let $R_i$ be the set of relevant document IDs and $P_i$ the predicted set. The competition uses macro-averaged Recall and Precision:
 
 $$
-\operatorname{Recall}_i = \frac{|R_i \cap P_i|}{|R_i|},
+\mathrm{Recall}_i = \frac{|R_i \cap P_i|}{|R_i|},
 \qquad
-\operatorname{Recall} = \frac{1}{N}\sum_{i=1}^{N}\operatorname{Recall}_i.
+\mathrm{Recall} = \frac{1}{N}\sum_{i=1}^{N}\mathrm{Recall}_i.
 $$
 
+For precision, use $\mathrm{Precision}_i = |R_i \cap P_i|/|P_i|$ when $|P_i| > 0$, and $\mathrm{Precision}_i = 0$ when $|P_i| = 0$.
+
 $$
-\operatorname{Precision}_i =
-\begin{cases}
-\frac{|R_i \cap P_i|}{|P_i|}, & |P_i| > 0, \\
-0, & |P_i| = 0,
-\end{cases}
-\qquad
-\operatorname{Precision} = \frac{1}{N}\sum_{i=1}^{N}\operatorname{Precision}_i.
+\mathrm{Precision} = \frac{1}{N}\sum_{i=1}^{N}\mathrm{Precision}_i.
 $$
 
 **Recall determines the leaderboard ranking. Precision breaks ties.** Each query may return at most **five document IDs**. If a prediction contains more than five IDs, both metrics are set to zero for that query, which remains included in the overall average.
